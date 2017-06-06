@@ -25,6 +25,24 @@
         deleteByCompleted();
     });
 
+    $(document).on("click", ".filters > li", function (event) {
+        var id = $(event.target).attr("id");
+        $("#filter-all").removeClass("selected");
+        $("#filter-active").removeClass("selected");
+        $("#filter-completed").removeClass("selected");
+        $("#" + id).addClass("selected");
+
+        if(id == "filter-all") {
+            $(".todo-list").find('li').css("display", "block");
+		} else if (id == "filter-active") {
+            $(".todo-list").find('li').css("display", "block");
+            $(".todo-list").find('li.completed').css("display", "none");
+		} else if (id == "filter-completed") {
+            $(".todo-list").find('li').css("display", "none");
+            $(".todo-list").find('li.completed').css("display", "block");
+		}
+    });
+
     function updateCount() {
     	$('.todo-count > strong').html(count);
 	}
@@ -89,6 +107,8 @@
 			}),
 			success: function(response) {
 				prependTodo(response.id, response.todo, response.completed);
+				count++;
+				updateCount();
 			}
 		});
 	}
