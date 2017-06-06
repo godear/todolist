@@ -5,6 +5,11 @@ public class Todo {
 	private String todo;
 	private Integer completed;
 	
+	public Todo(String todo) {
+		super();
+		this.todo = todo;
+	}
+	
 	public Todo(Integer id, String todo, Integer completed) {
 		super();
 		this.id = id;
