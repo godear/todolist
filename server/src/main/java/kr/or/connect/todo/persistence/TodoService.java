@@ -21,4 +21,8 @@ public class TodoService {
 		todo.setId(dao.add(todo));
 		return todo;
 	}
+
+ 	public int updateCompleted(Integer id, Integer completed) {
+ 		return dao.update(id, completed);
+ 	}
 }

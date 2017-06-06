@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -37,5 +38,12 @@ public class TodoDao {
 	public Integer add(Todo todo) {
 		SqlParameterSource params = new BeanPropertySqlParameterSource(todo);
  		return insertAction.executeAndReturnKey(params).intValue();
+	}
+	
+	public int update(Integer id, Integer completed) {
+	 	MapSqlParameterSource params = new MapSqlParameterSource();
+	 	params.addValue("id", id);
+	 	params.addValue("completed", completed);
+	 	return jdbc.update(TodoSqls.UPDATE_COMPLETED, params);
 	}
 }
