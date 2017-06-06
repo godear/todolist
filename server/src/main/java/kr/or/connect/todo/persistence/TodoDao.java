@@ -25,6 +25,7 @@ public class TodoDao {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 		this.insertAction = new SimpleJdbcInsert(dataSource)
 				.withTableName("todo")
+				.usingColumns("todo")
 				.usingGeneratedKeyColumns("id");
 	}
 	

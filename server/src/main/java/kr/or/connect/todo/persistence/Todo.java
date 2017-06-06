@@ -5,9 +5,13 @@ public class Todo {
 	private String todo;
 	private Integer completed;
 	
-	public Todo(String todo) {
-		super();
+	public Todo(){
+		
+	}
+	
+	public Todo(String todo, Integer completed) {
 		this.todo = todo;
+		this.completed = completed;
 	}
 	
 	public Todo(Integer id, String todo, Integer completed) {
@@ -16,6 +20,7 @@ public class Todo {
 		this.todo = todo;
 		this.completed = completed;
 	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -34,4 +39,8 @@ public class Todo {
 	public void setCompleted(Integer completed) {
 		this.completed = completed;
 	}
+	@Override
+ 	public String toString() {
+ 		return "Todo [id=" + id + ", todo=" + todo + ", completed=" + completed + "]";
+ 	}	
 }

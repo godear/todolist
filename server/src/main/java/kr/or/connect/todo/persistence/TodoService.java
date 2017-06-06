@@ -17,9 +17,8 @@ public class TodoService {
 		return dao.selectAll();
 	}
 	
-	public Todo add(String todo) {
-		Todo newTodo = new Todo(todo);
-		newTodo.setId(dao.add(newTodo));
-		return newTodo;
+	public Todo add(Todo todo) {
+		todo.setId(dao.add(todo));
+		return todo;
 	}
 }
