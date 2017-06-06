@@ -39,8 +39,4 @@ public class Todo {
 	public void setCompleted(Integer completed) {
 		this.completed = completed;
 	}
-	@Override
- 	public String toString() {
- 		return "Todo [id=" + id + ", todo=" + todo + ", completed=" + completed + "]";
- 	}	
 }

@@ -25,4 +25,12 @@ public class TodoService {
  	public int updateCompleted(Integer id, Integer completed) {
  		return dao.update(id, completed);
  	}
+
+	public int deleteById(Integer id) {
+		return dao.deleteById(id);
+ 	}
+	
+	public int deleteByCompleted() {
+		return dao.deleteByCompleted();
+ 	}
 }

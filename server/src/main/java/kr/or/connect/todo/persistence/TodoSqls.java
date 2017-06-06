@@ -7,4 +7,7 @@ public class TodoSqls {
 			"SELECT * FROM todo ORDER BY ID ASC";
 	static final String UPDATE_COMPLETED =
 			"UPDATE todo SET completed = :completed WHERE id = :id";
+	
+	static final String DELETE_BY_COMPLETED =
+			"DELETE FROM todo WHERE completed= :completed";
 }
